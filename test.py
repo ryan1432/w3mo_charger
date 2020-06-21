@@ -8,7 +8,6 @@ percent = str(battery.percent)
 if plugged==False: plugged="Not Plugged In"
 else: plugged="Plugged In"
 
-
 if percent < str('20'):
     print("less then 20%, lets start charging")
     x = w3mo.discover(return_type=dict)
@@ -39,6 +38,7 @@ if percent >= str('97'):
         device.set_state(0)
     else:
         print("w3mo ("+w3mo_name+") not found")
+
 else:
     print("Still Charging... Currently @ "+percent+"% and "+plugged)
 
