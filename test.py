@@ -19,11 +19,14 @@ if percent < str('20'):
     print("Device State = {}".format(device.state))
     
     if device.name == w3mo_name :
+        print("Found "+w3mo_name+", turning on")
         device.set_state(1)
+    
     else:
         print("w3mo ("+w3mo_name+") not found")
-if percent >= str('21'):
-    print("Higher then 21%, lets stop charging")
+
+if percent >= str('97'):
+    print("Higher then 97%, lets stop charging")
     x = w3mo.discover(return_type=dict)
     x = w3mo.discover(return_type=list)
     devices = w3mo.discover(return_type=list)
@@ -32,6 +35,7 @@ if percent >= str('21'):
     print("Device State = {}".format(device.state))
     
     if device.name == w3mo_name :
+        print("Found "+w3mo_name+", turning off")
         device.set_state(0)
     else:
         print("w3mo ("+w3mo_name+") not found")
